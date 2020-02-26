@@ -7,6 +7,7 @@ public class Program
   public static void Main()
   {
     Console.ForegroundColor = ConsoleColor.Cyan;
+    // Console.BackgroundColor = ConsoleColor.DarkGreen;
 
     Console.WriteLine("White on blue");
     Console.WriteLine("Another line."); 
@@ -17,6 +18,8 @@ public class Program
 
     List<Car> Cars = new List<Car>() { volkswagen, yugo, ford, amc };
 
+    yugo.SetPrice(300);
+
     Console.WriteLine("Enter maximum price: ");
     string stringMaxPrice = Console.ReadLine();
     Console.WriteLine("Enter maximum miles: ");
@@ -25,6 +28,7 @@ public class Program
     int maxMiles = int.Parse(stringMaxMiles); 
 
     List<Car> CarsMatchingSearch = new List<Car>(0);
+
       foreach (Car automobile in Cars)
     {
       if (automobile.MeetCriteria(maxPrice, maxMiles))
@@ -37,9 +41,9 @@ public class Program
         foreach(Car automobile in CarsMatchingSearch)
       {
         Console.WriteLine("-------s--------------");
-        Console.WriteLine(automobile.GetMakeModel());
-        Console.WriteLine(automobile.GetMiles() + " miles");
-        Console.WriteLine("$" + automobile.GetPrice());
+        Console.WriteLine(automobile.MakeModel);
+        Console.WriteLine(automobile.Miles + " miles");
+        Console.WriteLine("$" + automobile.Price);
         // Console.WriteLine(automobile._info);
       }
     }
