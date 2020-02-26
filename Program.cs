@@ -1,35 +1,15 @@
 using System;
+using Dealership.Models;
 using System.Collections.Generic;
-
-public class Car
-{
-  public string MakeModel;
-  public int Price;
-  public int Miles;
-  public string Info;
-
-  public Car(string makeModel, int price, int miles, string info)
-  {
-    MakeModel = makeModel;
-    Price = price;
-    Miles = miles;
-    Info = info;
-  }
-
-  public bool WorthBuying(int maxPrice)
-  {
-    return (Price < maxPrice);
-  }
-  public bool MeetCriteria(int maxPrice, int maxMiles)
-  {
-    return (Price < maxPrice && Miles < maxMiles);
-  }
-}
 
 public class Program
 {
   public static void Main()
   {
+    Console.ForegroundColor = ConsoleColor.Cyan;
+
+    Console.WriteLine("White on blue");
+    Console.WriteLine("Another line."); 
     Car volkswagen = new Car("1974 Volkswagen Thing", 1100, 368792, "These used to be military jeeps for the german wehrmacht");
     Car yugo = new Car("1980 Yugo Koral", 700, 56000, "these cars were only sold in America becuase they were so unsafe");
     Car ford = new Car("1988 Ford Country Squire", 1400, 239001, "these cars were the peak of the swaggin' wagon");
@@ -56,8 +36,11 @@ public class Program
     {
         foreach(Car automobile in CarsMatchingSearch)
       {
-        Console.WriteLine(automobile.MakeModel);
-        Console.WriteLine(automobile.Info);
+        Console.WriteLine("-------s--------------");
+        Console.WriteLine(automobile.GetMakeModel());
+        Console.WriteLine(automobile.GetMiles() + " miles");
+        Console.WriteLine("$" + automobile.GetPrice());
+        // Console.WriteLine(automobile._info);
       }
     }
     else 
